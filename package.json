@@ -1,0 +1,32 @@
+{
+	"name": "front-end-exercise",
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+	},
+	"dependencies": {
+		"@chakra-ui/react": "^1.8.8",
+		"@emotion/react": "^11",
+		"@emotion/styled": "^11",
+		"framer-motion": "^4",
+		"next": "12.1.5",
+		"react": "18.0.0",
+		"react-dom": "18.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.23",
+		"@types/react": "^18.0.3",
+		"@types/react-dom": "18.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.19.0",
+		"@typescript-eslint/parser": "^5.19.0",
+		"eslint": "^8.13.0",
+		"eslint-config-next": "12.1.5",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-react": "^7.29.4",
+		"typescript": "^4.6.3"
+	}
+}
