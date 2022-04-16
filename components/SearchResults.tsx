@@ -1,6 +1,7 @@
 import { ListItem, UnorderedList, VStack, Button, Text, Flex } from '@chakra-ui/react'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import { capitalizeFirstLetter } from '../Helpers'
+import { useLoadMore } from '../hooks/useLoadMore'
 import { Products } from '../type'
 
 type SearchResultsProps = {
@@ -8,28 +9,11 @@ type SearchResultsProps = {
 }
 
 const SearchResults: FC<SearchResultsProps> = ({ products }) => {
-	const [productsToDisplay, setProductsToDisplay] = useState(products.slice(0, 3)) // initially we will show 3 blogs
-
-	const [showLoadMore, setShowLoadMore] = useState(true)
-
-	const loadMoreProducts = () => {
-		let currentLoadedProducts = [...productsToDisplay]
-		if (currentLoadedProducts.length < products.length) {
-			currentLoadedProducts = products.slice(0, currentLoadedProducts.length + 3)
-			setProductsToDisplay(currentLoadedProducts)
-		} else {
-			setShowLoadMore(false)
-		}
-	}
+	const { loadMoreProducts, productsToDisplay, showLoadMore } = useLoadMore(products)
 
 	if (productsToDisplay.length === 0) {
 		return <Text color='white'>Search for a Product.</Text>
 	}
-
-	useEffect(() => {
-		const initialProducts = products.slice(0, 3)
-		setProductsToDisplay(initialProducts)
-	}, [products])
 
 	return (
 		<VStack h='40vh'>
