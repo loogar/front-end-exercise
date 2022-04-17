@@ -46,4 +46,4 @@ documentation:  https://github.com/LauraRobertson/skincareAPI
 
 
 ## Deployment:
-Project is deployed on vercel link : https://front-end-exercise-b228lwd8w-loogar.vercel.app/
+Project is deployed on vercel link : https://front-end-exercise.vercel.app/
