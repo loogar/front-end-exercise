@@ -14,6 +14,7 @@ const Home: NextPage = () => {
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
+			{/* responsive design */}
 
 			<Flex h='50vh' direction={['column', 'column', 'row', 'row']}>
 				<Flex

@@ -10,7 +10,7 @@ type UseFetchProductsType = {
 
 export const useFetchProducts = (): UseFetchProductsType => {
 	const [isLoading, setIsLoading] = useState(false)
-	const [isEmpty, setIsEmpty] = useState(false)
+	const [isEmpty, setIsEmpty] = useState(false) // set if the results return empty
 	const [results, setResults] = useState<Products[]>([])
 
 	const onSearch = async (query: string) => {

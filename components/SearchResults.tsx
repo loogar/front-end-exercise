@@ -1,4 +1,12 @@
-import { ListItem, UnorderedList, VStack, Button, Text, Flex } from '@chakra-ui/react'
+import {
+	ListItem,
+	UnorderedList,
+	VStack,
+	Button,
+	Text,
+	Flex,
+	Box,
+} from '@chakra-ui/react'
 import React, { FC } from 'react'
 import { capitalizeFirstLetter } from '../Helpers'
 import { useLoadMore } from '../hooks/useLoadMore'
@@ -9,7 +17,7 @@ type SearchResultsProps = {
 }
 
 const SearchResults: FC<SearchResultsProps> = ({ products }) => {
-	const { loadMoreProducts, productsToDisplay, showLoadMore } = useLoadMore(products)
+	const { onLoadMore, productsToDisplay, showLoadMore, bottomRef } = useLoadMore(products)
 
 	if (productsToDisplay.length === 0) {
 		return <Text color='white'>Search for a Product.</Text>
@@ -17,7 +25,7 @@ const SearchResults: FC<SearchResultsProps> = ({ products }) => {
 
 	return (
 		<VStack h='40vh'>
-			<Flex justifySelf='flex-start' overflow='scroll'>
+			<Flex direction='column' justifySelf='flex-start' overflow='scroll'>
 				<UnorderedList>
 					{productsToDisplay.map((product) => (
 						<ListItem color='white' key={product.id}>
@@ -30,9 +38,11 @@ const SearchResults: FC<SearchResultsProps> = ({ products }) => {
 						</ListItem>
 					))}
 				</UnorderedList>
+				{/* use this div to make the scroll automatic ans this div is always in view */}
+				<Box ref={bottomRef} />
 			</Flex>
 			{productsToDisplay.length > 0 && showLoadMore ? (
-				<Button my={2} py={2} px={9} onClick={loadMoreProducts}>
+				<Button my={2} py={2} px={9} onClick={onLoadMore}>
 					Load more
 				</Button>
 			) : (

@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { Products } from '../type'
 
 type UseFetchProductsType = {
-	loadMoreProducts: () => void
+	onLoadMore: () => void
 	showLoadMore: boolean
 	productsToDisplay: Products[]
+	bottomRef: MutableRefObject<null | HTMLDivElement>
 }
 
 export const useLoadMore = (products: Products[]): UseFetchProductsType => {
@@ -12,20 +13,33 @@ export const useLoadMore = (products: Products[]): UseFetchProductsType => {
 
 	const [showLoadMore, setShowLoadMore] = useState(true)
 
+	const bottomRef = useRef<null | HTMLDivElement>(null)
+
 	useEffect(() => {
 		const initialProducts = products.slice(0, 3)
 		setProductsToDisplay(initialProducts)
 	}, [products])
 
-	const loadMoreProducts = () => {
+	const onLoadMore = () => {
+		// auto scroll to the bottom
+		bottomRef.current &&
+			bottomRef.current.scrollIntoView({
+				block: 'end',
+				inline: 'center',
+				behavior: 'smooth',
+			})
+
+		// display three more on every load more
+
 		let currentLoadedProducts = [...productsToDisplay]
 		if (currentLoadedProducts.length < products.length) {
 			currentLoadedProducts = products.slice(0, currentLoadedProducts.length + 3)
 			setProductsToDisplay(currentLoadedProducts)
 		} else {
+			// hide the load more button when the product length is exceeded
 			setShowLoadMore(false)
 		}
 	}
 
-	return { loadMoreProducts, productsToDisplay, showLoadMore }
+	return { onLoadMore, productsToDisplay, showLoadMore, bottomRef }
 }
