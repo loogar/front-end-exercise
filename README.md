@@ -19,10 +19,15 @@ and fetch from skincareAPI.
 
 ## Features Used
 
+-Responsive Design
 - React Hooks
-- Custom React Hooks (useFetchProducts, useLoadMore)
+- Custom  Hooks (useFetchProducts, useLoadMore)
 
 ## API Documentation:
 The API  used  was community based test API Skin Care API.
 
 documentation:  https://github.com/LauraRobertson/skincareAPI
+
+
+## Deployment:
+Project is deployed on vercel link : https://front-end-exercise-b228lwd8w-loogar.vercel.app/

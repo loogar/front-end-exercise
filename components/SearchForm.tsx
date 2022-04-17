@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
 	FormControl,
 	Input,
@@ -21,6 +20,12 @@ const SearchForm = () => {
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
 		setInput(e.target.value)
 
+	const handleOnSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === 'Enter' && input !== '') {
+			e.preventDefault()
+			onSearch(input)
+		}
+	}
 	const { onSearch, isLoading, isEmpty, results } = useFetchProducts()
 
 	return (
@@ -41,6 +46,7 @@ const SearchForm = () => {
 							border='0.5px solid'
 							borderColor='black'
 							value={input}
+							onKeyDown={handleOnSubmit}
 							onChange={handleInputChange}
 						/>
 					</InputGroup>
@@ -62,12 +68,14 @@ const SearchForm = () => {
 				</HStack>
 			</FormControl>
 
-			{isLoading ? (
-				<Spinner size='lg' color='white' />
-			) : isEmpty ? (
-				<Text color='white'>Sorry we dont have the product you looking for 😪</Text>
-			) : (
+			{isLoading && <Spinner size='lg' color='white' />}
+
+			{!isEmpty && results.length > 0 && !isLoading && (
 				<SearchResults products={results} />
+			)}
+
+			{isEmpty && (
+				<Text color='white'>Sorry we dont have the product you looking for 😪</Text>
 			)}
 		</VStack>
 	)

@@ -19,10 +19,6 @@ type SearchResultsProps = {
 const SearchResults: FC<SearchResultsProps> = ({ products }) => {
 	const { onLoadMore, productsToDisplay, showLoadMore, bottomRef } = useLoadMore(products)
 
-	if (productsToDisplay.length === 0) {
-		return <Text color='white'>Search for a Product.</Text>
-	}
-
 	return (
 		<VStack h='40vh'>
 			<Flex direction='column' justifySelf='flex-start' overflow='scroll'>
@@ -38,15 +34,15 @@ const SearchResults: FC<SearchResultsProps> = ({ products }) => {
 						</ListItem>
 					))}
 				</UnorderedList>
-				{/* use this div to make the scroll automatic ans this div is always in view */}
+				{/* use this div to make the scroll automatic  this div is always in view */}
 				<Box ref={bottomRef} />
 			</Flex>
 			{productsToDisplay.length > 0 && showLoadMore ? (
-				<Button my={2} py={2} px={9} onClick={onLoadMore}>
+				<Button my={2} py={4} px={9} onClick={onLoadMore}>
 					Load more
 				</Button>
 			) : (
-				<Text color='white'>No more products to load 😶 !</Text>
+				<Text color='white'>No more products to load 😊 !</Text>
 			)}
 		</VStack>
 	)
