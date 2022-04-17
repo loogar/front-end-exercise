@@ -8,8 +8,11 @@ and fetch from skincareAPI.
 
 ## Installation
 
-- Run the following command on your terminal 'git clone https://github.com/loogar/front-end-exercise.git' to clone the repo into your local directory.
-  
+- Run the following command on your terminal to clone the repo into your local directory.
+
+``` 
+git clone https://github.com/loogar/front-end-exercise.git 
+```
 ## Project setup
 ```
 yarn install
