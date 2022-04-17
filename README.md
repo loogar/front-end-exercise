@@ -6,11 +6,27 @@ The goal of this exercise is to develope site from wire frames provided for the 
 and fetch from skincareAPI. 
 
 
-## Installation and configuration
+## Installation
 
-- Run the following command on your terminal 'git clone https://github.com/loogar/front-end-exercise.git' to clone the repo into your local directory.
-  -Run 'yarn install' to install all the required packages.
-  -Run 'yarn dev' to run the project which will automatically start the project in a local host.
+- Run the following command on your terminal to clone the repo into your local directory.
+
+``` 
+git clone https://github.com/loogar/front-end-exercise.git 
+```
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn dev
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
 
 ## Languages and libraries
 - next.js
@@ -19,9 +35,11 @@ and fetch from skincareAPI.
 
 ## Features Used
 
--Responsive Design
+- Responsive Design
 - React Hooks
 - Custom  Hooks (useFetchProducts, useLoadMore)
+
+
 
 ## API Documentation:
 The API  used  was community based test API Skin Care API.
@@ -30,4 +48,4 @@ documentation:  https://github.com/LauraRobertson/skincareAPI
 
 
 ## Deployment:
-Project is deployed on vercel link : https://front-end-exercise-b228lwd8w-loogar.vercel.app/
+Project is deployed on vercel link : https://front-end-exercise.vercel.app/
