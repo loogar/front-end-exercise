@@ -6,11 +6,24 @@ The goal of this exercise is to develope site from wire frames provided for the 
 and fetch from skincareAPI. 
 
 
-## Installation and configuration
+## Installation
 
 - Run the following command on your terminal 'git clone https://github.com/loogar/front-end-exercise.git' to clone the repo into your local directory.
-  -Run 'yarn install' to install all the required packages.
-  -Run 'yarn dev' to run the project which will automatically start the project in a local host.
+  
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn dev
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
 
 ## Languages and libraries
 - next.js
