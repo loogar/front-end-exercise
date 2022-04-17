@@ -35,9 +35,11 @@ yarn lint
 
 ## Features Used
 
--Responsive Design
+- Responsive Design
 - React Hooks
 - Custom  Hooks (useFetchProducts, useLoadMore)
+
+
 
 ## API Documentation:
 The API  used  was community based test API Skin Care API.
