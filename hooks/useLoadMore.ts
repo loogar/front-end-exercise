@@ -9,7 +9,7 @@ type UseFetchProductsType = {
 }
 
 export const useLoadMore = (products: Products[]): UseFetchProductsType => {
-	const [productsToDisplay, setProductsToDisplay] = useState(products.slice(0, 3)) // initially we will show 3 blogs
+	const [productsToDisplay, setProductsToDisplay] = useState(products.slice(0, 3)) // initially we will show 3 Products
 
 	const [showLoadMore, setShowLoadMore] = useState(true)
 
